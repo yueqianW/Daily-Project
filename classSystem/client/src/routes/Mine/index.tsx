@@ -1,7 +1,14 @@
-import React from 'react';
-
-function Mine() {
-  return <div>Mine</div>;
+import React,{PropsWithChildren} from 'react';
+import { connect } from 'react-redux';
+import {RouteComponentProps} from 'react-router-dom';
+import {RootState,MineState} from '@/store/reducers';
+import './index.less';
+type StateProps = ReturnType<typeof mapStateToProps>;
+type Prop =  PropsWithChildren<RouteComponentProps> & StateProps;
+function Mine(props:Prop){
+  return <div>{props.title}</div>
 }
-
-export default Mine;
+function mapStateToProps(state:RootState):MineState{
+  return state.mine;
+}
+export default connect(mapStateToProps)(Mine);

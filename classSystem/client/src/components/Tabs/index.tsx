@@ -1,20 +1,23 @@
 import React from 'react';
-import { withRouter, NavLink } from 'react-router-dom';
+import {withRouter,NavLink} from 'react-router-dom';
+import {HomeOutlined,ShoppingCartOutlined,UserOutlined} from '@ant-design/icons';
 import './index.less';
-
-function Tabs() {
+function Tabs(){
   return (
     <footer>
       <NavLink exact to="/">
-        <span>11</span>
+        <HomeOutlined/>
+        <span>首页</span>
       </NavLink>
-      <NavLink exact to="/mine">
-        <span>22</span>
+      <NavLink  to="/mine">
+        <ShoppingCartOutlined/>
+        <span>购物车</span>
       </NavLink>
-      <NavLink exact to="/profile">
-        <span>33</span>
+      <NavLink  to="/profile">
+        <UserOutlined/>
+        <span>个人中心</span>
       </NavLink>
     </footer>
-  );
+  )
 }
 export default withRouter(Tabs);
